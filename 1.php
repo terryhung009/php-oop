@@ -1,0 +1,44 @@
+<?php
+class Animal
+{
+    public $name;
+    protected $age;
+    private $weight;
+
+    public function __construct($name,$age,$weight)
+    {
+        $this->name = $name;
+        $this->age = $age;
+        $this->weight = $weight;
+    }
+
+    public function animalShowData()
+    {
+        echo "暱稱: $this->name <br>";
+        echo "年齡: $this->age <br>";
+        echo "體重: $this->weight <br>"; 
+    }
+}
+
+class Dog extends Animal
+{
+    public function dogShowData()
+    {
+        echo "暱稱: $this->name <br>";
+        echo "年齡: $this->age <br>";
+        echo "體重: $this->weight <br>"; 
+    }
+}
+
+$myDog = new Dog("多多",'3',"3KG");
+
+//1.測試自身類別讀取屬性
+// $myDog->animalShowData();
+
+// 2.測試物件可以讀取的屬性
+// echo $myDog->name;  //正常讀取
+// echo $myDog->age;    //無法讀取
+// echo $myDog->weight;     //無法讀取
+
+// 3.測試子類別可以讀取的屬性
+$myDog->dogShowData();
